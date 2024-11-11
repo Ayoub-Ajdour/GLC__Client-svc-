@@ -1,0 +1,56 @@
+syntax = "proto3";
+option java_package="ma.fpl.clientsvc.stub";
+service ClientService {
+  rpc GetAllClients(GetAllClientsRequest) returns (GetAllClientsResponse);
+  rpc GetClientById(GetClientByIdRequest) returns (GetClientByIdResponse);
+  rpc CreateClient(CreateClientRequest) returns (CreateClientResponse);
+  rpc UpdateClient(UpdateClientRequest) returns (UpdateClientResponse);
+  rpc DeleteClient(DeleteClientRequest) returns (DeleteClientResponse);
+}
+
+message GetAllClientsRequest {}
+
+message GetAllClientsResponse {
+  repeated Client clients = 1;
+}
+
+message GetClientByIdRequest {
+  int64 id = 1;
+}
+
+message GetClientByIdResponse {
+  Client client = 1;
+}
+
+message CreateClientRequest {
+  Client client = 1;
+}
+
+message CreateClientResponse {
+  Client client = 1;
+}
+
+message UpdateClientRequest {
+  int64 id = 1;
+  Client client = 2;
+}
+
+message UpdateClientResponse {
+  Client client = 1;
+}
+
+message DeleteClientRequest {
+  int64 id = 1;
+}
+
+message DeleteClientResponse {
+  bool success = 1;
+}
+
+message Client {
+  int64 id = 1;
+  string nom = 2;
+  string adresse = 3;
+  string email = 4;
+  string telephone = 5;
+}

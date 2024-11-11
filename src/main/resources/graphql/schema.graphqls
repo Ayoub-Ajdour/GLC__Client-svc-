@@ -1,0 +1,24 @@
+type Query {
+    AllClients: [Client],
+    ClientById(id: Int!): Client
+}
+
+type Mutation {
+    createClient(clientRequest:ClientRequest): Client,
+    updateClient(id: Int!, nom: String, adresse: String, email: String, telephone: String): Client,
+    deleteClient(id: Int!): Boolean
+}
+
+type Client {
+    id: Int,
+    nom: String,
+    adresse: String,
+    email: String,
+    telephone: String
+}
+input ClientRequest {
+    nom: String,
+    adresse: String,
+    email: String,
+    telephone: String
+}
