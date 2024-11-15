@@ -14,26 +14,51 @@ public class ClientSvcApplication {
         SpringApplication.run(ClientSvcApplication.class, args);
     }
     @Bean
-    CommandLineRunner commandLineRunner(ClientRepository clientRepository){
+    CommandLineRunner commandLineRunner(ClientRepository clientRepository) {
         return args -> {
+            for (long i = 1; i <= 30; i++) {
+                clientRepository.save(Client.builder()
+                        .adresse("Sidi Ouaaziz " + i)
+                        .email("ayoubajdour" + (i * 10) + "@gmail.com")
+                        .nom("Ayoub Ajdour " + i)
+                        .telephone("0657017" + (i + 1000))
+                        .build());
+            }
             clientRepository.save(Client.builder()
-                            .adresse("Sidi Ouaaziz")
-                            .email("ayoubajdour10@gmail.com")
-                            .nom("ayoub ajdour1")
-                            .telephone("0657017246")
+                    .adresse("Casablanca")
+                    .email("mohammed123@gmail.com")
+                    .nom("Mohammed Ali")
+                    .telephone("0657080900")
                     .build());
+
             clientRepository.save(Client.builder()
-                            .adresse("Sidi Ouaaziz")
-                            .email("ayoubajdour20@gmail.com")
-                            .nom("ayoub ajdour2")
-                            .telephone("0657017246")
+                    .adresse("Rabat")
+                    .email("ahmed456@gmail.com")
+                    .nom("Ahmed Ouahbi")
+                    .telephone("0657080950")
                     .build());
+
             clientRepository.save(Client.builder()
-                            .adresse("Sidi Ouaaziz")
-                            .email("ayoubajdour30@gmail.com")
-                            .nom("ayoub ajdour3")
-                            .telephone("0657017246")
+                    .adresse("Marrakech")
+                    .email("sarah789@gmail.com")
+                    .nom("Sarah Boussaid")
+                    .telephone("0657080800")
+                    .build());
+
+            clientRepository.save(Client.builder()
+                    .adresse("Tangier")
+                    .email("khalid999@gmail.com")
+                    .nom("Khalid El Amrani")
+                    .telephone("0657080750")
+                    .build());
+
+            clientRepository.save(Client.builder()
+                    .adresse("Agadir")
+                    .email("imane111@gmail.com")
+                    .nom("Imane El Jami")
+                    .telephone("0657080700")
                     .build());
         };
     }
+
 }
